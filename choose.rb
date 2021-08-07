@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'dotenv/load'
+require 'discordrb'
+
 bot = Discordrb::Commands::CommandBot.new token: "#{ENV['TOKEN']}", prefix: '!'
 
 bot.command(:you)  do |event|
