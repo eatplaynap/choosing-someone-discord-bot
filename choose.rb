@@ -14,7 +14,7 @@ bot.command(:you) do |event, number|
 
   number = number&.to_i || 1
   unmuted_users = channel.users.reject(&:self_muted?)
-  user_names = unmuted_users&.map(&:name)
+  user_names = unmuted_users.map(&:name)
   chosen_users = user_names.sample(number)
   event.send_message chosen_users.join(", ")
 end
