@@ -7,7 +7,7 @@ bot = Discordrb::Commands::CommandBot.new token: (ENV['TOKEN']).to_s, prefix: '!
 
 bot.command(:you) do |event, number|
   channel = event.user.voice_channel
-  retutn event.send_message('ボイスチャンネルに入ってからコマンドを実行してください') if channel.nil?
+  return event.send_message('ボイスチャンネルに入ってからコマンドを実行してください') if channel.nil?
   return event.send_message('ミュートを解除してください') if channel.users.all?(&:self_muted?)
 
   number = number&.to_i || 1
