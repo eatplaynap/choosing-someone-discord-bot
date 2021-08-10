@@ -12,11 +12,11 @@ bot.command(:you) do |event, number|
   elsif channel.users.all?(&:self_muted?)
     event.send_message 'ミュートを解除してください'
   else
-    number　= number&.to_i || 1
+    number = number&.to_i || 1
     unmuted_users = channel.users.reject(&:self_muted?)
     user_names = unmuted_users&.map(&:name)
     chosen_users = user_names.sample(number)
-    event.send_message chosen_users
+    event.send_message chosen_users.join(", ")
   end
 end
 
