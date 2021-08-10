@@ -11,7 +11,7 @@ bot.command(:you) do |event, number|
   return event.send_message('ミュートを解除してください') if channel.users.all?(&:self_muted?)
 
   number = number&.to_i || 1
-  return event.send_message('選択人数は正の整数を入れてください') unless number > 1
+  return event.send_message('選択人数は正の整数を入れてください') unless number > 0
 
   unmuted_users = channel.users.reject(&:self_muted?)
   user_names = unmuted_users.map(&:name)
