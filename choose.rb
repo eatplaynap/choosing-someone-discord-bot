@@ -10,7 +10,20 @@ bot = Discordrb::Commands::CommandBot.new(
 )
 
 bot.command(:you) do |event, number|
-  channel = event.user.voice_channel
+  member =
+    begin
+      response = Discordrb::API::Server.resolve_member(bot.token, bot.server.id, event.author.id)
+      Discordrb::Member.new(JSON.parse(response), bot.server, bot)
+    rescue Discordrb::Errors::UnknownMember
+      nil
+    end
+  channel =
+    begin
+      response = Discordrb::API::Channel.resolve(bot.token, member.voice_channel.id) # TODO: member might be nil
+      Discordrb::Channel.new(JSON.parse(response), bot)
+    rescue Discordrb::Errors::UnknownChannel
+      nil
+    end
   return event.send_message('ボイスチャンネルに入ってからコマンドを実行してください') if channel.nil?
   return event.send_message('ミュートを解除してください') if channel.users.all?(&:self_muted?)
 
