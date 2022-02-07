@@ -3,7 +3,11 @@
 require 'dotenv/load'
 require 'discordrb'
 
-bot = Discordrb::Commands::CommandBot.new token: (ENV['TOKEN']).to_s, prefix: '!'
+bot = Discordrb::Commands::CommandBot.new(
+  log_mode: :debug,
+  token: (ENV['TOKEN']).to_s,
+  prefix: '!'
+)
 
 bot.command(:you) do |event, number|
   channel = event.user.voice_channel
