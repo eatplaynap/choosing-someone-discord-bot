@@ -2,7 +2,6 @@
 
 source 'https://rubygems.org'
 
-# gem 'discordrb'
 gem 'discordrb', github: 'shardlab/discordrb', branch: 'threads'
 gem 'dotenv'
 gem 'rubocop', require: false
