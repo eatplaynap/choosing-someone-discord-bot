@@ -71,5 +71,8 @@ DEPENDENCIES
   dotenv
   rubocop
 
+RUBY VERSION
+   ruby 3.0.1p64
+
 BUNDLED WITH
    2.2.28
