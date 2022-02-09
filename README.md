@@ -20,7 +20,7 @@ https://discord.com/oauth2/authorize?client_id=871997264518856714&permissions=33
 ### 自分でDiscordのApplicationの作成
 https://discordapp.com/developers/applications/
 - Developer PortalからBotを作成し、発行されたTokenをコードの環境変数に設定
-- SERVER MEMBERS INTENTを有効にする
+- PRESENCE INTENT、SERVER MEMBERS INTENTを有効にする
 - OAuth2 の Scope から Bot をチェックし、下記必要権限にチェックする
   - View Channels
   - Send Messages

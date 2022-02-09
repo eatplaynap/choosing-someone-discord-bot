@@ -1,26 +1,32 @@
-GEM
-  remote: https://rubygems.org/
+GIT
+  remote: https://github.com/shardlab/discordrb.git
+  revision: 32ac7028e223d017f41c8f08be9c4f897a7a5526
+  branch: threads
   specs:
-    ast (2.4.2)
-    discordrb (3.4.0)
-      discordrb-webhooks (~> 3.3.0)
+    discordrb (3.4.2)
+      discordrb-webhooks (~> 3.4.2)
       ffi (>= 1.9.24)
       opus-ruby
       rest-client (>= 2.0.0)
       websocket-client-simple (>= 0.3.0)
-    discordrb-webhooks (3.3.0)
-      rest-client (>= 2.1.0.rc1)
+    discordrb-webhooks (3.4.2)
+      rest-client (>= 2.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ast (2.4.2)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
     event_emitter (0.2.6)
-    ffi (1.15.3)
+    ffi (1.15.5)
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
-    mime-types (3.3.1)
+    mime-types (3.4.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0704)
+    mime-types-data (3.2022.0105)
     netrc (0.11.0)
     opus-ruby (1.0.1)
       ffi
@@ -49,10 +55,10 @@ GEM
     ruby-progressbar (1.11.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.7)
+    unf_ext (0.0.8)
     unicode-display_width (2.0.0)
     websocket (1.2.9)
-    websocket-client-simple (0.3.0)
+    websocket-client-simple (0.5.1)
       event_emitter
       websocket
 
@@ -61,9 +67,9 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  discordrb
+  discordrb!
   dotenv
   rubocop
 
 BUNDLED WITH
-   2.2.15
+   2.2.28
