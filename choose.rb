@@ -4,7 +4,6 @@ require 'dotenv/load'
 require 'discordrb'
 
 bot = Discordrb::Commands::CommandBot.new(
-  log_mode: :debug,
   token: (ENV['TOKEN']).to_s,
   prefix: '!'
 )
