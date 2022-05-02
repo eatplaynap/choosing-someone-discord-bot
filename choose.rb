@@ -13,12 +13,18 @@ bot.command(:you) do |event, number|
   return event.send_message('Join a voice channel before executing the command!') if channel.nil?
   return event.send_message("Huh, seems like you're all muted!") if channel.users.all?(&:self_muted?)
 
-  number = number&.to_i || 1
-  return event.send_message('The number should be greater than 0!') unless number.positive?
-
   unmuted_users = channel.users.reject(&:self_muted?)
   user_names = unmuted_users.map(&:name)
-  chosen_users = user_names.sample(number)
+
+  chosen_users =
+    if number == 'all'
+      user_names.shuffle
+    else
+      number = number&.to_i || 1
+      return event.send_message('The number should be greater than 0!') unless number.positive?
+
+      user_names.sample(number)
+    end
 
   event.send_message chosen_users.join(', ')
 end
